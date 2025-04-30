@@ -3,11 +3,20 @@ import eventImg from "./assets/image.svg"
 import cxoImg from "./assets/cxo-logo 1.svg"
 import banner from "./assets/Banner_Home.svg"
 import zeeMedia from "./assets/ZeeMedia.png"
+import cardImg from "./assets/cardImg.png"
+import devImg from "./assets/devImg.png"
 import { useState } from "react"
 
 
 
 function Home() {
+
+  const [testIndex, setTestIndex] = useState(1); 
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+
+
+
   const navItems = ["Hackathon", "Summit", "Communities", "Resource"];
   const eventDay = {
     date: "10-15",
@@ -15,11 +24,36 @@ function Home() {
     day: "SUN-FRI"
   }
   const bannerImg = [
-    banner,banner,banner,banner
+    banner, banner, banner, banner
   ]
-  
+  const card = {
+    img: cardImg,
+    title: "Blockchain Hackathon- Online",
+    date: "Sep 12th,2024 - Sep 13th, 2024",
+    mode: "Online"
+  }
 
-  const [currentIndex, setCurrentIndex] = useState(0);
+  const testimonials = [
+    {
+      name: "Om Tomar",
+      title: "Hackathon Winner",
+      role: "Developer",
+      text: "Blockchain has been a very vast and complex topic, but KALP SDK made it really easy during the challenges. I would love to participate in the next hackathon.",
+    },
+    {
+      name: "Tanishq Gupta",
+      title: "Hackathon Winner",
+      role: "Developer",
+      text: "Blockchain has been a very vast and complex topic, but KALP SDK made it really easy during the challenges. I would love to participate in the next hackathon.",
+    },
+    {
+      name: "Gagan Deep",
+      title: "Founder at Buildfuture.ai",
+      role: "Entrepreneur",
+      text: "Blockchain has been a very vast and complex topic, but KALP SDK made it really easy during the challenges. I would love to participate in the next hackathon.",
+    },
+  ];
+
 
   const prevSlide = () => {
     setCurrentIndex((prev) => (prev === 0 ? bannerImg.length - 1 : prev - 1));
@@ -31,6 +65,13 @@ function Home() {
     console.log("Current Index:", currentIndex);
   };
 
+  
+
+  const prevSlideTest = () =>
+    setTestIndex((prev) => (prev - 1 + testimonials.length) % testimonials.length);
+
+  const nextSlideTest = () =>
+    setTestIndex((prev) => (prev + 1) % testimonials.length);
   return (
     <>
       {/* Nav Bar */}
@@ -52,43 +93,42 @@ function Home() {
 
       </div>
 
-{/* Banner */}
+      {/* Banner */}
       <div>
         <div className="relative w-full mx-auto overflow-hidden">
           <div className="flex transition-transform duration-1000 ease-in-out" style={{ transform: `translateX(-${currentIndex * 100}%)` }}>
-         
-          {bannerImg.map((img, index)=>(
-          <img className="w-full flex-shrink-0 object-cover"  key={index}
-          src={img}
-          alt={`Slide ${index}`}
-          />
 
-          ))}
+            {bannerImg.map((img, index) => (
+              <img className="w-full flex-shrink-0 object-cover" key={index}
+                src={img}
+                alt={`Slide ${index}`}
+              />
+
+            ))}
           </div>
           <button className=" absolute top-70 left-10 bg-white px-4 py-2.5 rounded-full border-1 
            hover:bg-gray-200"
-           onClick={prevSlide}
+            onClick={prevSlide}
           >
             {'<'}
-            </button>
+          </button>
 
           <button className=" absolute top-70 right-10 bg-white px-4 py-2.5 rounded-full border-1 
            hover:bg-gray-200"
-           onClick={nextSlide}
+            onClick={nextSlide}
           >
             {'>'}
-            </button>
-          
-            <div className="absolute bottom-10 left-1/2 flex justify-center mt-4 space-x-2">
-              {bannerImg.map((_, index) => (
-                <div
-                  key={index}
-                  className={`h-2 w-2 rounded-full ${
-                    index === currentIndex ? 'bg-gray-800' : 'bg-gray-400'
+          </button>
+
+          <div className="absolute bottom-10 left-1/2 flex justify-center mt-4 space-x-2">
+            {bannerImg.map((_, index) => (
+              <div
+                key={index}
+                className={`h-2 w-2 rounded-full ${index === currentIndex ? 'bg-gray-800' : 'bg-gray-400'
                   }`}
-                ></div>
-              ))}
-            </div>
+              ></div>
+            ))}
+          </div>
 
         </div>
       </div>
@@ -203,7 +243,7 @@ function Home() {
         </div>
       </div>
 
-{/* Pr and Media */}
+      {/* Pr and Media */}
       <div className="mt-10 py-7 px-15">
         <h1 className="text-center font-bold text-2xl">PR & Media</h1>
         <div className="grid grid-cols-4 grid-rows-2 gap-4 ">
@@ -217,10 +257,88 @@ function Home() {
           <img src={zeeMedia} alt="" />
         </div>
       </div>
-{/* Past Events */}
-      <div>
-        <h1>Past Events</h1>
+      {/* Past Events */}
+      <div className="py-7 px-15 bg-slate-100">
+        <h1 className="font-bold text-3xl p-2 text-center">Past Events</h1>
+        <div className="px-10 py-5">
+          <div className="grid grid-cols-3 grid-rows-1 gap-7">
+            <div className="bg-white p-5 rounded-sm border-1 border-slate-300">
+              <img className="py-2" src={cardImg} alt="" />
+              <h1 className="py-2 font-bold text-2xl">{card.title}</h1>
+              <p className="py-2 text-slate-500">{card.date}</p>
+              <p className="py-2 text-slate-500">{card.mode}</p>
+            </div>
+            <div className="bg-white p-5 rounded-sm border-1 border-slate-300">
+              <img className="py-2" src={cardImg} alt="" />
+              <h1 className="py-2 font-bold text-2xl">{card.title}</h1>
+              <p className="py-2 text-slate-500">{card.date}</p>
+              <p className="py-2 text-slate-500">{card.mode}</p>
+            </div>
+            <div className="bg-white p-5 rounded-sm border-1 border-slate-300">
+              <img className="py-2" src={cardImg} alt="" />
+              <h1 className="py-2 font-bold text-2xl">{card.title}</h1>
+              <p className="py-2 text-slate-500">{card.date}</p>
+              <p className="py-2 text-slate-500">{card.mode}</p>
+            </div>
+          </div>
+        </div>
       </div>
+
+      {/* Testemonial */}
+      <div className="py-7 px-15">
+        <div className="relative">
+          <h1 className="font-bold text-3xl text-center">Testemonial</h1>
+          <h1 className="absolute -top-5 left-117 text-yellow-300 font-bold text-8xl -z-1">"</h1>
+        </div>
+        <div className="flex gap-6 transition-all">
+        {testimonials.map((item, index) => {
+          const isActive = index === testIndex;
+          return (
+            <div
+              key={index}
+              className=" py-10 px-5"
+            >
+              <div className={`p-6 w-80 text-center shadow-lg rounded-sm transition-all duration-500 ${
+                isActive
+                  ? "bg-yellow-50 border-2 border-yellow-400"
+                  : "bg-white border border-gray-300"
+              }`}>
+              <p className="text-gray-600 mb-4">{item.text}</p>
+              </div>
+              <div>
+              <div className="flex justify-center">
+                  <div>
+                    <div className="flex justify-center py-2">
+                      <img className="rounded-full w-20" src={devImg} alt="" />
+                    </div>
+                    <h1>Om Tomer <span className="text-slate-500">{"(Developer)"}</span></h1>
+                    <p className="text-sm">Hackathon Winner</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+          );
+        })}
+      </div>
+      <div className="flex gap-4 justify-center pb-10">
+        <button
+          onClick={prevSlideTest}
+          className="p-3 border-1 bg-gray-100 rounded-lg hover:bg-gray-200"
+        >
+          {"<"}
+        </button>
+        <button
+          onClick={nextSlideTest}
+          className="p-3 border-1 bg-gray-100 rounded-lg hover:bg-gray-200"
+        >
+          {">"}
+        </button>
+      </div>
+    </div>
+
+        
+      
     </>
   )
 }
