@@ -5,6 +5,8 @@ import banner from "./assets/Banner_Home.svg"
 import zeeMedia from "./assets/ZeeMedia.png"
 import cardImg from "./assets/cardImg.png"
 import devImg from "./assets/devImg.png"
+import arrow from "./assets/arrow.png"
+import icon22 from "./assets/icon22.png"
 import { useState } from "react"
 
 
@@ -336,9 +338,90 @@ function Home() {
         </button>
       </div>
     </div>
-
+ 
+     {/* Submit Detail Section */}
         
+      <div className="py-9 px-15 bg-black flex justify-between" >
+        <div>
+      <h1 className="text-3xl text-white font-bold ">Want to host your Hackathon?</h1>
+      <p className="text-white text-xs">Get Access to 15k+ Developers. We help companies/Individuals innovate faster
+         and build better products, using real user rapid iterations.</p>
+         <div className="pt-8">
+          <button className="bg-white font-bold border-1 px-7 py-[8px] rounded-lg">Submit Details</button>
+          <button className="ml-5 bg-black text-white border-white font-bold border-1 px-7 py-[8px] rounded-lg">Get in Touch</button>
+         </div>
+      </div>
+      <div>
+        <h1 className="font-bold text-3xl text-white">15k <span className="font-bold text-3xl text-red-500">+</span></h1>
+        <p className="font-bold text-3xl text-white">Developers</p>
+      </div>
+      </div>
       
+     {/* Ambassador */}
+      <div className="py-7 px-15 flex border-b-1 border-gray-300 bg-slate-50">
+        <div className="w-1/2">
+          <h1 className="text-4xl pr-10 font-bold flex-wrap">
+            <p className="pr-10 text-blue-400">
+            Ambassador</p>
+            <p>Program</p>
+          </h1>
+          <div className="pr-10 py-8 pb-20">
+          <p className="text-xl">The <b>KALP Studio Ambassador Program</b> is designed to empower ambassadors with technology &
+             support to build,grow & engage the Web3.0 & Blockchain community.</p>
+             </div>
+             <button 
+             className=" bg-black text-white border-white font-bold border-1 px-7 py-[8px] rounded-lg">
+              Join Now</button>
+         
+        </div>
+        <div className="py-4 w-1/2">
+         <div className="flex items-center">
+          <img src={arrow} alt="" />
+          <p className="ml-8 text-2xl">KALP Studio Credits</p>
+         </div>
+         <div className="flex items-center pt-8">
+          <img src={arrow} alt="" />
+          <p className="ml-5 text-2xl">Course Sponsorships</p>
+         </div>
+         <div className="flex items-center pt-8">
+          <img src={arrow} alt="" />
+          <p className="ml-5 text-2xl">Gadgets & Accessories</p>
+         </div>
+         <div className="flex items-center pt-8">
+          <img src={arrow} alt="" />
+          <p className="ml-5 text-2xl">Cash Prizes</p>
+         </div>
+         <div className="flex items-center pt-8">
+          <img src={arrow} alt="" />
+          <p className="ml-5 text-2xl">Travel Sponsorships</p>
+         </div>
+          </div>
+      </div>
+
+      {/* collab */}
+      <div className="py-10">
+        <h1 className="font-bold text-3xl text-center">Collaborate With Us</h1>
+        <div className="px-30 py-10">
+        <div className="grid grid-cols-3 grid-rows-1 gap-10">
+          <div className="bg-black rounded-lg py-10 px-7">
+            <img className="w-10" src={icon22} alt="" />
+            <p className="font-bold text-white text-2xl py-5">Become the <br/> Event Partner</p>
+            <p className=" text-white text-4xl">&#8594;</p>
+          </div>
+          <div className="bg-black rounded-lg py-10 px-7">
+            <img className="w-10" src={icon22} alt="" />
+            <p className="font-bold text-white text-2xl py-5">Become the <br/> Event Partner</p>
+            <p className=" text-white text-4xl">&#8594;</p>
+          </div>
+          <div className="bg-black rounded-lg py-10 px-7">
+            <img className="w-10" src={icon22} alt="" />
+            <p className="font-bold text-white text-2xl py-5">Become the <br/> Event Partner</p>
+            <p className=" text-white text-4xl">&#8594;</p>
+          </div>
+          </div>
+          </div>
+      </div>
+
     </>
   )
 }
