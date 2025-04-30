@@ -422,6 +422,26 @@ function Home() {
           </div>
       </div>
 
+     {/* subscribe section */}
+     <div className="py-10 px-15 bg-slate-50 flex justify-between">
+          <div>
+          <p className="text-4xl text-red-500 font-bold pb-4">Subscribe</p>
+          <p className="text-4xl font-bold">To Our Newsletter</p>
+          <p className="text-xs">Get market insights, industry updates, & best practices in your inbox.</p>
+          </div>
+          <div>
+            <form action="submit">
+              <input className=" p-2 pl-2 pr-7  bg-white rounded-lg border-1 border-slate-400" 
+              type="email" placeholder="Enter your Email" />
+              <button 
+             className=" ml-3 bg-black text-white border-white font-bold border-1 px-7 py-[8px] rounded-lg">
+              Join Now</button>
+            </form>
+          <p className="text-xs">By clicking Sign Up you're confirming that 
+            you agree with our <ul>Terms and Conditions.</ul></p>
+
+          </div>
+     </div>
     </>
   )
 }
